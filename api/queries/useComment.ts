@@ -1,11 +1,9 @@
 import { parseDate } from "@utils";
 import { CommentDTO } from "../dto";
-import { query } from "./query";
+import { fetcher } from "../fetcher";
 
-export const getComment = async (
-  id: number,
-): Promise<Comment> => {
-  const commentResponse = await query<CommentDTO>(`item/${id}.json`);
+export const useComment = async (id: number): Promise<Comment> => {
+  const commentResponse = await fetcher<CommentDTO>(`item/${id}.json`);
 
   if (!commentResponse.success || !commentResponse.data) {
     throw new Error(`Failed to fetch story with id: ${id}`);

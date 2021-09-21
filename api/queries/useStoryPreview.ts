@@ -1,9 +1,9 @@
 import { parseDate } from "@utils";
 import { StoryDTO } from "../dto";
-import { query } from "./query";
+import { fetcher } from "../fetcher";
 
-export const getStoryPreview = async (id: number): Promise<StoryPreview> => {
-  const storyResponse = await query<StoryDTO>(`item/${id}.json`);
+export const useStoryPreview = async (id: number): Promise<StoryPreview> => {
+  const storyResponse = await fetcher<StoryDTO>(`item/${id}.json`);
 
   if (!storyResponse.success || !storyResponse.data) {
     throw new Error(`Failed to fetch story with id: ${id}`);
@@ -17,7 +17,7 @@ export const getStoryPreview = async (id: number): Promise<StoryPreview> => {
       name: story.by,
       image: "avatar.jpeg",
     },
-    image: 'demo-image-1.jpg',
+    image: "demo-image-1.jpg",
     title: story.title,
     date: parseDate(story.time),
     claps: story.score,

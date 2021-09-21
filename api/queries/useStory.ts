@@ -1,10 +1,10 @@
 import { StoryDTO } from "../dto";
 import { dummyDescription } from "../../template";
-import { query } from "./query";
 import { parseDate } from "@utils";
+import { fetcher } from "../fetcher";
 
 export const getStory = async (storyId: number): Promise<Story> => {
-  const storyResponse = await query<StoryDTO>(`item/${storyId}.json`);
+  const storyResponse = await fetcher<StoryDTO>(`item/${storyId}.json`);
 
   if (!storyResponse.success || !storyResponse.data) {
     throw new Error(`Failed to fetch story with id: ${storyId}`);
