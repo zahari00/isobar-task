@@ -1,15 +1,21 @@
 import type { GetServerSidePropsContext } from "next";
 import { useStoryComments } from "@api";
-import { prefetchStory, useStory } from "api/queries/useStory";
+import { prefetchStory, useStory } from "@api";
+import Link from "next/link";
 
 const StoryPage = ({ id }: { id: string }) => {
   const { data: story } = useStory(id);
 
-  console.log("story", story);
-
   const comments = useStoryComments(story?.comments || []);
 
-  return <ul>{story?.title}</ul>;
+  return (
+    <ul>
+      {story?.title}
+      <Link href={`/${story?.author.name}/author`} passHref>
+        <a>{story?.author.name}</a>
+      </Link>
+    </ul>
+  );
 };
 
 export const getServerSideProps = async ({
