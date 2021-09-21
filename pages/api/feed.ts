@@ -1,3 +1,4 @@
+import { fetcher, getComment, getStoryPreview } from "@api";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -13,9 +14,18 @@ export default async function handler(
     return;
   }
 
+  const formatter: any = {
+    comment: getComment,
+    story: getStoryPreview,
+  };
+
   const items = await Promise.all(
-    ids.split(",").map((id: string) => {
-      // handle both comments and 
+    ids.split(",").map(async (id: string) => {
+      const response = await fetcher<any>(`item/${id}.json`);
+
+      if (!response.data) return null;
+
+      return await formatter[response.data?.type]?.(response.data);
     })
   );
 

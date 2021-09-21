@@ -23,7 +23,7 @@ export async function fetcher<T>(path: string, ...attrs: any[]) {
   return res as QueryResult<T>;
 }
 
-interface QueryResult<T> {
+export interface QueryResult<T> {
   success: boolean;
   data: T | null;
   error?: string;

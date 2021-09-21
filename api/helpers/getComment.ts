@@ -1,23 +1,29 @@
 import { parseDate } from "@utils";
-import { CommentDTO } from "../dto";
-import { fetcher } from "../fetcher";
+import { RawCommentDTO, CommentDTO } from "../dto";
+import { fetcher, QueryResult } from "../fetcher";
 
 export const getComment = async (
-  id: number,
-): Promise<Comment> => {
-  const commentResponse = await fetcher<CommentDTO>(`item/${id}.json`);
+  data: number | number | RawCommentDTO
+): Promise<CommentDTO> => {
+  let commentResponse: QueryResult<RawCommentDTO> | undefined;
 
-  if (!commentResponse.success || !commentResponse.data) {
-    throw new Error(`Failed to fetch story with id: ${id}`);
+  if (typeof data === "number" || typeof data === "string") {
+    commentResponse = await fetcher<RawCommentDTO>(`item/${data}.json`);
+
+    if (!commentResponse.success || !commentResponse.data) {
+      throw new Error(`Failed to fetch story with id: ${data}`);
+    }
   }
 
-  const comment = commentResponse.data;
+  const comment = (
+    commentResponse ? commentResponse.data : data
+  ) as RawCommentDTO;
 
   // Some Comments are without author or text (we don't need them)
   if (!comment.by || !comment.text?.trim()) return null;
 
   return {
-    id,
+    id: comment.id,
     author: {
       name: comment.by,
       image: "avatar.jpeg",
@@ -28,15 +34,3 @@ export const getComment = async (
     children: comment.kids,
   };
 };
-
-export type Comment = {
-  author: {
-    name: string;
-    image: string;
-  };
-  content: string;
-  date: string;
-  parent: number;
-  id: number;
-  children: number[];
-} | null;
