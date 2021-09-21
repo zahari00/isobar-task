@@ -9,12 +9,14 @@ const StoryPage = ({ id }: { id: string }) => {
   const comments = useStoryComments(story?.comments || []);
 
   return (
-    <ul>
+    <div>
       {story?.title}
-      <Link href={`/${story?.author.name}/author`} passHref>
-        <a>{story?.author.name}</a>
-      </Link>
-    </ul>
+      <p>
+        <Link href={`/${story?.author.name}/author`} passHref>
+          <a>{story?.author.name}</a>
+        </Link>
+      </p>
+    </div>
   );
 };
 
