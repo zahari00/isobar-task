@@ -10,7 +10,7 @@ export default async function handler(
 
   const authorResponse = await fetcher<RawAuthorDTO>(`user/${id}.json`);
 
-  if (!authorResponse.success) {
+  if (!authorResponse.success || !authorResponse.data) {
     res.status(500).json({
       error: `Failed to fetch user with id: ${id}`,
     });
