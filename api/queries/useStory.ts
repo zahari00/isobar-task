@@ -1,38 +1,15 @@
 import { StoryDTO } from "../dto";
-import { dummyDescription } from "../../template";
-import { parseDate } from "@utils";
-import { fetcher } from "../fetcher";
+import useSWR from "swr";
+import fetch from "isomorphic-unfetch";
 
-export const getStory = async (storyId: number): Promise<Story> => {
-  const storyResponse = await fetcher<StoryDTO>(`item/${storyId}.json`);
+const getRoute = (id: string | number) => `${process.env.host}/api/story/${id}`;
 
-  if (!storyResponse.success || !storyResponse.data) {
-    throw new Error(`Failed to fetch story with id: ${storyId}`);
-  }
-
-  const story = storyResponse.data;
-
-  return {
-    author: {
-      name: story.by,
-      image: "avatar.jpeg",
-    },
-    title: story.title,
-    description: dummyDescription,
-    comments: story.kids,
-    id: storyId,
-    date: parseDate(story.time),
-  };
+export const useStory = (id: string | number, isDisabled = false) => {
+  return useSWR<StoryDTO>(!isDisabled ? getRoute(id) : null);
 };
 
-export interface Story {
-  author: {
-    name: string;
-    image: string;
+export const prefetchStory = async (id: string | number) => {
+  return {
+    [getRoute(id)]: await fetch(getRoute(id)).then((res) => res.json()),
   };
-  description: string;
-  title: string;
-  date: string;
-  id: number;
-  comments: number[];
-}
+};

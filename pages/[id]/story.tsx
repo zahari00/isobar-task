@@ -1,23 +1,29 @@
-import { getStory, query, Story } from "@api";
 import type { GetServerSidePropsContext } from "next";
-import { useEffect } from "react";
+import { useStoryComments } from "@api";
+import { prefetchStory, useStory } from "api/queries/useStory";
 
-const StoryPage = ({ story }: { story: Story }) => {
-  console.log(story);
+const StoryPage = ({ id }: { id: string }) => {
+  const { data: story } = useStory(id);
 
-  useEffect(() => {
-    if (typeof story.comments[0] === "number")
-      query(`comments?comments=${story.comments.join(',')}`, "http://localhost:3000/api").then(console.log);
-  }, []);
+  console.log("story", story);
 
-  return <ul>{story.title}</ul>;
+  const comments = useStoryComments(story?.comments || []);
+
+  return <ul>{story?.title}</ul>;
 };
 
-export const getServerSideProps = async ({ params }: GetServerSidePropsContext) => {
-  const story = await getStory(+(params?.id || ''));
+export const getServerSideProps = async ({
+  params,
+}: GetServerSidePropsContext) => {
+  const id = params?.id as string;
+  const fallback = await prefetchStory(id);
+
+  console.log("fallback", fallback);
+
   return {
     props: {
-      story,
+      fallback,
+      id,
     },
   };
 };
