@@ -26,3 +26,13 @@
   @apply block mr-1;
   margin-top: -0.1rem;
 }
+
+.textPlaceholder {
+  @apply bg-lightgrey rounded-md;
+  height: 0.4rem;
+  width: 2.4rem;
+}
+
+.placeholder {
+  @apply text-lightgrey;
+}

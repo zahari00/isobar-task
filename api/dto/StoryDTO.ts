@@ -9,6 +9,7 @@ export interface StoryDTO {
   url: string;
   id: number;
   comments: number[];
+  isLoading?: boolean
 }
 
 export interface RawStoryDTO {

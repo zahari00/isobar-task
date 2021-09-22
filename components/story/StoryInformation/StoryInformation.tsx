@@ -19,20 +19,34 @@ export const StoryInformation = ({
       })}
     >
       <AuthorPreview author={story.author} isInverted={isInverted} />
-      <span className={css.spacer}>•</span>
-      <p className={css.text}>{story.date}</p>
-      <span className={css.spacer}>•</span>
-      <div className={css.text}>
-        <div className={css.stars}>
-          <LazyImage
-            alt={story.title}
-            src={`/img/icons/${isInverted ? "white" : "black"}-stars.svg`}
-            width={18}
-            height={18}
-          />
-        </div>
-        {story.score}
-      </div>
+      {story.isLoading && (
+        <>
+          <span className={cn([css.spacer, css.placeholder])}>•</span>
+          <span className={css.textPlaceholder} />
+          <span className={cn([css.spacer, css.placeholder])}>•</span>
+          <div className={css.text}>
+            <span className={css.textPlaceholder} />
+          </div>
+        </>
+      )}
+      {!story.isLoading && (
+        <>
+          <span className={css.spacer}>•</span>
+          <p className={css.text}>{story.date}</p>
+          <span className={css.spacer}>•</span>
+          <div className={css.text}>
+            <div className={css.stars}>
+              <LazyImage
+                alt={story.title}
+                src={`/img/icons/${isInverted ? "white" : "black"}-stars.svg`}
+                width={18}
+                height={18}
+              />
+            </div>
+            {story.score}
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,0 +1,16 @@
+.con {
+  @apply flex items-center justify-start;
+}
+
+.img {
+  @apply mr-2 bg-lightgrey;
+  border-radius: 50%;
+  height: 26px;
+  width: 26px;
+}
+
+.text {
+  @apply mr-2 bg-lightgrey rounded-md;
+  height: 0.4rem;
+  width: 3rem;
+}

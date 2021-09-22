@@ -1,5 +1,5 @@
 .article {
-  @apply w-full overflow-hidden relative;
+  @apply w-full overflow-hidden relative bg-light;
   @media (min-width: theme("screens.md")) {
     height: 100%;
   }

@@ -5,6 +5,7 @@ import { getElementOffset } from "@utils";
 import { AuthorPopover } from "../AuthorPopover";
 import css from "./AuthorPreview.module.css";
 import cn from "classnames";
+import { AuthorPreviewPlaceholder } from "../AuthorPreviewPlaceholder";
 
 export const AuthorPreview = ({
   author,
@@ -32,6 +33,8 @@ export const AuthorPreview = ({
     clearTimeout(timeoutRef.current);
     setShowPopover(false);
   }, []);
+
+  if (author.isLoading) return <AuthorPreviewPlaceholder />;
 
   return (
     <div
