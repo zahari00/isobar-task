@@ -13,7 +13,7 @@ export const DataProvider = ({
   children,
   initialData,
 }: {
-  children: ReactChild;
+  children: ReactChild[];
   initialData: HomepageDTO;
 }) => {
   const [state, setState] = useState(initialData);

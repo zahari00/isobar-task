@@ -7,3 +7,16 @@
   @apply font-display text-2xl;
   font-weight: 900;
 }
+
+.refreshButton {
+  @apply bg-grey text-white text-sm font-bold py-1 px-3 rounded inline-flex items-center;
+
+  & svg {
+    @apply mr-2;
+    width: 0.8rem;
+  }
+}
+
+.wrapper {
+  @apply w-full flex justify-between items-center;
+}
