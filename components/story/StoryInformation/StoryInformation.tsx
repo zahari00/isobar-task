@@ -19,9 +19,9 @@ export const StoryInformation = ({
       })}
     >
       <AuthorPreview author={story.author} isInverted={isInverted} />
-      <span className={css.spacer} />
+      <span className={css.spacer}>•</span>
       <p className={css.text}>{story.date}</p>
-      <span className={css.spacer} />
+      <span className={css.spacer}>•</span>
       <div className={css.text}>
         <div className={css.stars}>
           <LazyImage

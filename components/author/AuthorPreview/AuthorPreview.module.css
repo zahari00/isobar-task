@@ -1,5 +1,5 @@
 .author {
-  @apply flex items-center text-black relative;
+  @apply flex items-center text-black relative cursor-pointer;
   z-index: 50;
 }
 

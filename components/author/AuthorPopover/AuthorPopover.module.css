@@ -1,0 +1,47 @@
+.popover {
+  @apply absolute top-0 pt-8;
+  transform: translateY(100%);
+  position: absolute;
+  z-index: 1000;
+  left: -15px;
+}
+
+.wrapper {
+  @apply bg-white border-lightgrey border rounded-lg px-5 pt-3 pb-5;
+  width: 400px;
+  min-height: 160px;
+}
+
+.content {
+  @apply flex items-start;
+}
+
+.img {
+  @apply overflow-hidden;
+  border-radius: 50%;
+  min-width: 80px;
+  min-height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.right {
+  @apply mt-1 pl-6;
+  max-width: calc(400px - 120px)
+}
+
+.name {
+  @apply font-bold text-lg mb-2;
+}
+
+.about {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  min-height: 90px;
+  max-height: 90px;
+  width: 100%;
+  line-height: 22px;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}

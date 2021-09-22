@@ -45,7 +45,7 @@
       border-radius: 1.2rem;
     }
 
-    &::-webkit-scrollbar-thumb {
+    &:hover::-webkit-scrollbar-thumb {
       background: theme("colors.grey");
     }
   }

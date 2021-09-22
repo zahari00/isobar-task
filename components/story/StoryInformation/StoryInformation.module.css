@@ -7,16 +7,12 @@
 }
 
 .spacer {
-  @apply block overflow-hidden bg-black mx-2;
-  max-width: 0.2rem;
-  max-height: 0.2rem;
-  min-width: 0.2rem;
-  min-height: 0.2rem;
+  @apply block overflow-hidden text-black mx-2 mt-1;
   border-radius: 100%;
 }
 
 .inverted .spacer {
-  @apply bg-white;
+  @apply text-white;
 }
 
 .text {
