@@ -1,13 +1,17 @@
 .article {
   @apply w-full overflow-hidden relative;
+  @media (min-width: theme("screens.md")) {
+    height: 100%;
+  }
 }
 
 .con {
   @apply w-full overflow-hidden relative;
   padding-bottom: 100%;
 
-  @media (min-width: theme("screens.lg")) {
-    padding-bottom: 70%;
+  @media (min-width: theme("screens.md")) {
+    padding-bottom: 0;
+    height: 100%;
   }
 }
 

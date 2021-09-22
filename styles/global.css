@@ -1,7 +1,7 @@
 @tailwind base;
 
 .container {
-  max-width: calc(80rem + 4rem);
+  max-width: calc(72rem + 4rem);
   margin: 0 auto;
   padding: 0 2rem;
 }

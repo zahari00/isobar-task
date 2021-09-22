@@ -3,7 +3,7 @@
 }
 
 .img {
-  @apply overflow-hidden ml-auto;
+  @apply overflow-hidden ml-4;
   border-radius: 50%;
   min-width: 90px;
   min-height: 90px;
@@ -12,11 +12,11 @@
 }
 
 .flexCon {
-  @apply flex content-between w-full;
+  @apply flex justify-between w-full;
 }
 
 .title {
-  @apply text-lg pr-4;
+  @apply text-lg;
   font-weight: bold;
 
   &:hover {
