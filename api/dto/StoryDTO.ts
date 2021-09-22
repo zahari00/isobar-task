@@ -1,27 +1,14 @@
+import { AuthorDTO } from "./AuthorDTO";
+
 export interface StoryDTO {
-  author: {
-    name: string;
-    image: string;
-  };
-  description: string;
+  author: AuthorDTO;
   title: string;
   date: string;
+  image: string;
+  score: number;
   id: number;
   comments: number[];
 }
-
-export interface StoryPreviewDTO {
-  author: {
-    name: string;
-    image: string;
-  };
-  image: string;
-  title: string;
-  date: string;
-  claps: number;
-  id: number;
-}
-
 
 export interface RawStoryDTO {
   by: string;

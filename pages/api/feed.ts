@@ -1,4 +1,4 @@
-import { fetcher, getComment, getStoryPreview } from "@api";
+import { fetcher, getComment, getStory } from "@api";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -16,7 +16,7 @@ export default async function handler(
 
   const formatter: any = {
     comment: getComment,
-    story: getStoryPreview,
+    story: getStory,
   };
 
   const items = await Promise.all(

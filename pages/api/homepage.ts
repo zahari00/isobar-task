@@ -1,8 +1,8 @@
-import { fetcher, getStoryPreview } from "@api";
+import { fetcher, getStory, HomepageDTO } from "@api";
 import { getRandomNumber } from "@utils";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const storiesCount = 10
+const topStoriesCount = 10
 
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const storyIdsResponse = await fetcher<number[]>("topstories.json");
@@ -11,21 +11,21 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     throw new Error("Failed to fetch stories");
   }
 
-  const number = getRandomNumber(storyIdsResponse.data.length - storiesCount);
+  const number = getRandomNumber(storyIdsResponse.data.length - topStoriesCount);
 
-  const storiesToFetch = storyIdsResponse.data.slice(
+  const topStoriesToFetch = storyIdsResponse.data.slice(
     number,
-    number + storiesCount
+    number + topStoriesCount
   );
 
   const [highlight, ...stories] = await Promise.all([
-    getStoryPreview(storyIdsResponse.data[0]),
-    ...storiesToFetch.map((id) => getStoryPreview(id)),
+    getStory(storyIdsResponse.data[0]),
+    ...topStoriesToFetch.map((id) => getStory(id)),
   ]);
 
   res.status(200).json({
-    stories,
+    topStories: stories.slice(0, topStoriesCount),
     highlight,
-  });
+  } as HomepageDTO);
   res.end();
 }

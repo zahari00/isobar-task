@@ -8,10 +8,9 @@ export interface RawAuthorDTO {
 }
 
 export interface AuthorDTO {
-  name: string;
+  username: string;
   score: number;
   joinedAt: string;
   about: string;
-  submitted: string[];
   image: string;
 }

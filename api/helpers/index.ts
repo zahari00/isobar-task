@@ -1,3 +1,4 @@
+export * from "./getStory";
 export * from "./getAuthor";
-export * from "./getStoryPreview";
 export * from "./getComment";
+export * from "./getAllData";
