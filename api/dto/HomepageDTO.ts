@@ -1,4 +1,4 @@
-import { StoryDTO } from "@api";
+import { StoryDTO } from "./StoryDTO";
 
 export interface HomepageDTO {
   highlight: StoryDTO

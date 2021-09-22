@@ -1,7 +1,7 @@
-import { Portal } from "@components/common";
 import { AuthorDTO } from "@api";
+import { Portal } from "@components/common";
+import { LazyImage } from "@components/ui";
 import css from "./AuthorPopover.module.css";
-import { LazyImage } from "@components";
 
 export const AuthorPopover = ({
   author,

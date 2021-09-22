@@ -1,11 +1,11 @@
 import { useCallback, useRef, useState } from "react";
 import { AuthorDTO } from "@api";
+import { AuthorPopover } from "../AuthorPopover";
+import { AuthorPreviewPlaceholder } from "../AuthorPreviewPlaceholder";
 import { LazyImage } from "@components/ui";
 import { getElementOffset } from "@utils";
-import { AuthorPopover } from "../AuthorPopover";
 import css from "./AuthorPreview.module.css";
 import cn from "classnames";
-import { AuthorPreviewPlaceholder } from "../AuthorPreviewPlaceholder";
 
 export const AuthorPreview = ({
   author,

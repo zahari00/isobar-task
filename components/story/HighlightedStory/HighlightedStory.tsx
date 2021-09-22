@@ -1,5 +1,4 @@
 import { useHighlightStory } from "@context";
-import cn from "classnames";
 import { StoryInformation } from "../StoryInformation";
 import css from "./HighlightedStory.module.css";
 
