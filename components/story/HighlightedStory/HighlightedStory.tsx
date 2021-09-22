@@ -1,7 +1,9 @@
-import { StoryPreview } from "@api";
+import { useHighlightStory } from "@context";
 import css from "./HighlightedStory.module.css";
 
-export const HighlightedStory = ({ story }: { story: StoryPreview }) => {
+export const HighlightedStory = () => {
+  const story = useHighlightStory();
+
   return (
     <article className={css.article}>
       <div

@@ -1,17 +1,16 @@
 import css from "@styles/Home.module.css";
 import { getAllData, HomepageDTO } from "@api";
 import { DataProvider } from "@context";
+import { HighlightedStory } from "@components";
 
 const Home = ({ data }: { data: HomepageDTO }) => {
   return (
     <DataProvider initialData={data}>
       <section className={css.section}>
         <article className={css.highlight}>
-          {/* {data?.highlight && <HighlightedStory story={data?.highlight} />} */}
+          <HighlightedStory />
         </article>
-        <aside>
-          <ul></ul>
-        </aside>
+        <aside></aside>
       </section>
     </DataProvider>
   );
