@@ -5,10 +5,10 @@ import cn from "classnames";
 
 export const AuthorPreview = ({
   author,
-  isInverted,
+  isInverted = false,
 }: {
   author: AuthorDTO;
-  isInverted: boolean;
+  isInverted?: boolean;
 }) => {
   return (
     <div
@@ -20,8 +20,8 @@ export const AuthorPreview = ({
       <figure className={css.img}>
         <LazyImage
           src={`/img/avatars/${author.image}`}
-          width={30}
-          height={30}
+          width={26}
+          height={26}
           alt={author.username}
         />
       </figure>

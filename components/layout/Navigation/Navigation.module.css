@@ -1,5 +1,5 @@
 .navigation {
-  @apply border-b border-solid border-grey mb-10 flex items-center;
+  @apply border-b border-solid border-lightgrey mb-10 flex items-center;
   min-height: 3.5rem;
 }
 

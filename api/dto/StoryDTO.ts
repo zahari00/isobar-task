@@ -6,6 +6,7 @@ export interface StoryDTO {
   date: string;
   image: string;
   score: number;
+  url: string;
   id: number;
   comments: number[];
 }

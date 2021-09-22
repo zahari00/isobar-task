@@ -1,5 +1,5 @@
 .author {
-  @apply flex items-center text-black;
+  @apply flex items-center text-black relative z-10;
 }
 
 .inverted {
@@ -10,8 +10,8 @@
   border-radius: 50%;
   display: inline-block;
   overflow: hidden;
-  height: 30px;
-  width: 30px;
+  height: 26px;
+  width: 26px;
 }
 
 .by, .name {

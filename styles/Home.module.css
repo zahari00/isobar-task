@@ -1,7 +1,12 @@
-.section {
-  @apply grid;
-}
+@media (min-width: theme("screens.md")) {
+  .section {
+    @apply flex items-start;
+  }
 
-.highlight {
-
+  .aside {
+    @apply ml-4;
+    
+    min-width: 20rem;
+    max-width: 25rem;
+  }
 }

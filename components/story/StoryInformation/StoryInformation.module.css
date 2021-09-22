@@ -1,0 +1,24 @@
+.container {
+  @apply mt-3 flex items-center flex-wrap text-black text-xs;
+}
+
+.spacer {
+  @apply block overflow-hidden bg-black mx-2;
+  max-width: 0.2rem;
+  max-height: 0.2rem;
+  min-width: 0.2rem;
+  min-height: 0.2rem;
+  border-radius: 100%;
+}
+
+.text {
+  @apply flex items-center text-black text-xs;
+
+  margin-top: 0.1rem;
+  opacity: 0.9;
+}
+
+.claps {
+  @apply block mr-1;
+  margin-top: -0.1rem;
+}

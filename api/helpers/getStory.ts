@@ -17,6 +17,7 @@ export const getStory = async (id: number | string): Promise<StoryDTO> => {
     author: await getAuthor(story.by),
     image: "demo-image-1.jpg",
     title: story.title,
+    url: story.url,
     date: parseDate(story.time),
     score: story.score,
     comments: story.kids || [],
