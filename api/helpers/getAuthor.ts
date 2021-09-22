@@ -2,7 +2,7 @@ import { parseDate } from "@utils";
 import { AuthorDTO, RawAuthorDTO } from "../dto";
 import { fetcher } from "../fetcher";
 
-export const getAuthor = async (id: string): Promise<AuthorDTO> => {
+export const getAuthor = async (id: string, image: string): Promise<AuthorDTO> => {
   let res = await fetcher<RawAuthorDTO>(`user/${id}.json`);
 
   if (!res.success || !res.data) {
@@ -13,7 +13,7 @@ export const getAuthor = async (id: string): Promise<AuthorDTO> => {
 
   return {
     username: author.id,
-    image: "demo-image-1.jpg",
+    image,
     about: author.about,
     score: author.karma,
     joinedAt: parseDate(author.created),
