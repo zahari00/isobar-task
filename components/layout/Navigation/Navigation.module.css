@@ -1,0 +1,9 @@
+.navigation {
+  @apply border-b border-solid border-grey mb-10 flex items-center;
+  min-height: 3.5rem;
+}
+
+.logo {
+  @apply font-display text-2xl;
+  font-weight: 900;
+}

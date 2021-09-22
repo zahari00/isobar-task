@@ -28,6 +28,9 @@
       "@components": [
         "./components"
       ],
+      "@components/*": [
+        "./components/*"
+      ],
       "@api": [
         "./api"
       ],

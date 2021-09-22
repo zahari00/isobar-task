@@ -1,7 +1,9 @@
-@import 'tailwindcss/base';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .container {
-  max-width: calc(1160px + 60px);
+  max-width: calc(80rem + 4rem);
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 2rem;
 }

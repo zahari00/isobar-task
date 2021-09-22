@@ -1,0 +1,28 @@
+.author {
+  @apply flex items-center text-black;
+}
+
+.inverted {
+  @apply text-white;
+}
+
+.img {
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  height: 30px;
+  width: 30px;
+}
+
+.by, .name {
+  @apply text-xs block;
+  margin-top: 0.1rem;
+}
+
+.by {
+  @apply ml-2;
+}
+
+.name {
+  font-weight: bold;
+}

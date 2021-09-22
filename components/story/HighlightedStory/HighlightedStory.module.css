@@ -3,6 +3,27 @@
   padding-bottom: 100%;
   position: relative;
   overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      transparent 75%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.article:hover h2 {
+  @apply bg-primary text-black;
 }
 
 .bg {
@@ -11,23 +32,45 @@
   height: 100%;
   background-position: center center;
   background-size: cover;
-} 
+}
 
 .title {
-  font-size: 1.5rem;
+  @apply text-white bg-black text-2xl py-1 px-2;
   font-weight: bold;
-  background-color: #000;
-  color: #fff;
-  line-height: 2.4rem;
-  padding: 0.2rem;
+  line-height: 2.5rem;
   display: inline;
   -webkit-box-decoration-break: clone;
 }
 
 .content {
+  @apply p-5;
+
   width: 100%;
   bottom: 0;
   left: 0;
   position: absolute;
-  padding: 1rem;
+  z-index: 2;
+}
+
+.bottom {
+  @apply mt-3 flex items-center flex-wrap text-white text-xs;
+}
+
+.spacer {
+  @apply block bg-white mx-2;
+  width: 0.1rem;
+  height: 0.1rem;
+  border-radius: 50%;
+}
+
+.bottomText {
+  @apply flex items-center text-white text-xs;
+
+  margin-top: 0.1rem;
+  opacity: 0.9;
+}
+
+.claps {
+  @apply block mr-1;
+  margin-top: -0.1rem;
 }
