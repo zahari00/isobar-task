@@ -13,6 +13,7 @@ export const HighlightedStory = () => {
           style={{ backgroundImage: `url(/img/stories/${story.image})` }}
         />
         <div className={css.content}>
+          <span className={css.tag}>Highlight</span>
           <h2 className={css.title}>{story.title}</h2>
           <div className={css.infoWrapper}>
             <StoryInformation story={story} isInverted />

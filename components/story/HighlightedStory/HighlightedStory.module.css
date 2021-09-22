@@ -5,6 +5,19 @@
 .con {
   @apply w-full overflow-hidden relative;
   padding-bottom: 100%;
+
+  @media (min-width: theme("screens.lg")) {
+    padding-bottom: 70%;
+  }
+}
+
+.tag {
+  @apply block py-1 px-3 text-xs bg-primary text-black absolute;
+  top: -1rem;
+  z-index: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .article:before {

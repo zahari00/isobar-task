@@ -1,5 +1,5 @@
 .article {
-  @apply py-8 border-t border-lightgrey relative;
+  @apply pb-5 pt-3 border-t border-lightgrey relative;
 }
 
 .img {

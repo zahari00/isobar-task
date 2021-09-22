@@ -2,6 +2,7 @@ import { AuthorPreview } from "components/author";
 import { LazyImage } from "@components/ui";
 import { StoryDTO } from "@api";
 import css from "./StoryInformation.module.css";
+import cn from "classnames";
 
 export const StoryInformation = ({
   story,
@@ -11,7 +12,12 @@ export const StoryInformation = ({
   isInverted?: boolean;
 }) => {
   return (
-    <div className={css.container}>
+    <div
+      className={cn({
+        [css.container]: true,
+        [css.inverted]: isInverted,
+      })}
+    >
       <AuthorPreview author={story.author} isInverted={isInverted} />
       <span className={css.spacer} />
       <p className={css.text}>{story.date}</p>

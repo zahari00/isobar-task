@@ -2,6 +2,10 @@
   @apply mt-3 flex items-center flex-wrap text-black text-xs;
 }
 
+.inverted {
+  @apply text-white;
+}
+
 .spacer {
   @apply block overflow-hidden bg-black mx-2;
   max-width: 0.2rem;
@@ -11,8 +15,12 @@
   border-radius: 100%;
 }
 
+.inverted .spacer {
+  @apply bg-white;
+}
+
 .text {
-  @apply flex items-center text-black text-xs;
+  @apply flex items-center  text-xs;
 
   margin-top: 0.1rem;
   opacity: 0.9;
