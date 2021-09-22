@@ -26,9 +26,10 @@ export const DataProvider = ({
 
   const refetch = useCallback(async () => {
     setState(createEmptyData());
+
     const data = await getAllData();
 
-    // setState(data);
+    setState(data);
   }, []);
 
   return (
@@ -50,7 +51,7 @@ export const useTopStories = () => useContext(DataContext).topStories;
 
 export const useHighlightStory = () => useContext(DataContext).highlight;
 
-const createEmptyStory = (): StoryDTO => {
+const createEmptyStory = (index: number): StoryDTO => {
   return {
     author: {
       username: "",
@@ -65,7 +66,7 @@ const createEmptyStory = (): StoryDTO => {
     image: "",
     score: 0,
     url: "",
-    id: 0,
+    id: index,
     comments: [],
     isLoading: true,
   };
@@ -73,7 +74,7 @@ const createEmptyStory = (): StoryDTO => {
 
 const createEmptyData = (): HomepageDTO => {
   return {
-    highlight: createEmptyStory(),
-    topStories: new Array(10).fill(null).map(createEmptyStory),
+    highlight: createEmptyStory(12),
+    topStories: new Array(10).fill(null).map((_, i) => createEmptyStory(i)),
   };
 } 

@@ -24,9 +24,8 @@
 
   .aside {
     @apply ml-8 pr-3;
-
-    min-width: 20rem;
-    max-width: 25rem;
+    min-width: 21rem;
+    max-width: 21rem;
 
     max-height: 100%;
     overflow: auto;
@@ -48,5 +47,12 @@
     &:hover::-webkit-scrollbar-thumb {
       background: theme("colors.grey");
     }
+  }
+}
+
+@media (min-width: theme("screens.lg")) {
+  .aside {
+    min-width: 25rem;
+    max-width: 25rem;
   }
 }

@@ -14,7 +14,6 @@ export const TopStory = ({ story }: { story: StoryDTO }) => {
             <>
               <div className={css.textPlaceholder} style={{ width: "90%" }} />
               <div className={css.textPlaceholder} style={{ width: "85%" }} />
-              <div className={css.textPlaceholder} style={{ width: "95%" }} />
               <div className={css.textPlaceholder} style={{ width: "60%" }} />
             </>
           )}
