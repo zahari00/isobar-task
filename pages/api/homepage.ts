@@ -11,7 +11,13 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     throw new Error("Failed to fetch stories");
   }
 
-  const number = getRandomNumber(storyIdsResponse.data.length - topStoriesCount);
+  const number = getRandomNumber(
+    storyIdsResponse.data.length - topStoriesCount
+  );
+
+  const highlightStory = getRandomNumber(
+    storyIdsResponse.data.length - topStoriesCount
+  );
 
   const topStoriesToFetch = storyIdsResponse.data.slice(
     number,
@@ -19,7 +25,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   );
 
   const [highlight, ...stories] = await Promise.all([
-    getStory(storyIdsResponse.data[0]),
+    getStory(storyIdsResponse.data[highlightStory]),
     ...topStoriesToFetch.map((id) => getStory(id)),
   ]);
 

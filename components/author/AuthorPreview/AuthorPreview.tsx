@@ -51,7 +51,7 @@ export const AuthorPreview = ({
           alt={author.username}
         />
       </figure>
-      <span className={css.by}>BY&nbsp;</span>
+      <span className={css.text}>BY&nbsp;</span>
       <p className={css.name}>{author.username}</p>
       {containerRef.current && showPopover && (
         <AuthorPopover
@@ -59,6 +59,7 @@ export const AuthorPreview = ({
           {...getElementOffset(containerRef.current)}
         />
       )}
+      <span className={css.text}>&nbsp;({author.score})</span>
     </div>
   );
 };

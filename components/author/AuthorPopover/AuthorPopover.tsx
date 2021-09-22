@@ -31,10 +31,26 @@ export const AuthorPopover = ({
               />
             </div>
             <div className={css.right}>
-              <p className={css.name}>{author.username}</p>
-              {author.about && (
-                <div className={css.about} dangerouslySetInnerHTML={{ __html: author.about }} />
-              )}
+              <p className={css.name}>
+                {author.username}
+                <span className={css.score}>
+                  <LazyImage
+                    alt={author.username}
+                    src={`/img/icons/yellow-stars.svg`}
+                    width={16}
+                    height={16}
+                  />
+                  &nbsp;
+                  {author.score}
+                </span>
+              </p>
+              <p className={css.joinedAt}>Joined: {author.joinedAt}</p>
+              <div
+                className={css.about}
+                dangerouslySetInnerHTML={{
+                  __html: author.about || "No about information",
+                }}
+              />
             </div>
           </div>
         </div>
