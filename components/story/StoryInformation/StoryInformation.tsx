@@ -17,10 +17,10 @@ export const StoryInformation = ({
       <p className={css.text}>{story.date}</p>
       <span className={css.spacer} />
       <div className={css.text}>
-        <div className={css.claps}>
+        <div className={css.stars}>
           <LazyImage
             alt={story.title}
-            src={`/img/icons/${isInverted ? "white" : "black"}-claps.svg`}
+            src={`/img/icons/${isInverted ? "white" : "black"}-stars.svg`}
             width={18}
             height={18}
           />

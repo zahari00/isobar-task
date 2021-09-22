@@ -1,5 +1,6 @@
 .author {
-  @apply flex items-center text-black relative z-10;
+  @apply flex items-center text-black relative;
+  z-index: 50;
 }
 
 .inverted {

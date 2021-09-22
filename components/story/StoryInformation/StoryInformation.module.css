@@ -18,7 +18,7 @@
   opacity: 0.9;
 }
 
-.claps {
+.stars {
   @apply block mr-1;
   margin-top: -0.1rem;
 }

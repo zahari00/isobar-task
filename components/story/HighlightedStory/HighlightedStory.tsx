@@ -1,6 +1,5 @@
 import { useHighlightStory } from "@context";
-import { AuthorPreview } from "components/author";
-import { LazyImage } from "@components/ui";
+import { StoryInformation } from "../StoryInformation";
 import css from "./HighlightedStory.module.css";
 
 export const HighlightedStory = () => {
@@ -15,25 +14,17 @@ export const HighlightedStory = () => {
         />
         <div className={css.content}>
           <h2 className={css.title}>{story.title}</h2>
-          <div className={css.bottom}>
-            <AuthorPreview author={story.author} isInverted />
-            <span className={css.spacer} />
-            <p className={css.bottomText}>{story.date}</p>
-            <span className={css.spacer} />
-            <p className={css.bottomText}>
-              <div className={css.claps}>
-                <LazyImage
-                  alt={story.title}
-                  src="/img/icons/white-claps.svg"
-                  width={18}
-                  height={18}
-                />
-              </div>
-              {story.score}
-            </p>
+          <div className={css.infoWrapper}>
+            <StoryInformation story={story} isInverted />
           </div>
         </div>
       </div>
+      <a
+        href={story.url}
+        className={css.link}
+        target="_blank"
+        rel="noreferrer"
+      />
     </article>
   );
 };
