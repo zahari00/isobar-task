@@ -24,14 +24,15 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     number + topStoriesCount
   );
 
-  const [highlight, ...stories] = await Promise.all([
+  const [highlight, ...topStories] = await Promise.all([
     getStory(storyIdsResponse.data[highlightStory]),
     ...topStoriesToFetch.map((id) => getStory(id)),
   ]);
 
   res.status(200).json({
-    topStories: stories.slice(0, topStoriesCount),
+    topStories,
     highlight,
   } as HomepageDTO);
+  
   res.end();
 }
