@@ -31,7 +31,7 @@ export const AuthorPopover = ({
               />
             </div>
             <div className={css.right}>
-              <p className={css.name}>
+              <div className={css.name}>
                 {author.username}
                 <span className={css.score}>
                   <LazyImage
@@ -43,7 +43,7 @@ export const AuthorPopover = ({
                   &nbsp;
                   {author.score}
                 </span>
-              </p>
+              </div>
               <p className={css.joinedAt}>Joined: {author.joinedAt}</p>
               <div
                 className={css.about}
