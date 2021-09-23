@@ -30,9 +30,9 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   ]);
 
   res.status(200).json({
-    topStories,
+    topStories: topStories.sort((a, b) => a.score - b.score),
     highlight,
   } as HomepageDTO);
-  
+
   res.end();
 }
